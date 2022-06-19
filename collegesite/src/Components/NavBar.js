@@ -1,46 +1,108 @@
-import styles from "./NavBar.module.css"
-const NavBar=()=>{
-    return(
-        <div>
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#" className={styles.nav}>BIT Student data portal</a>
-</nav>
+import { React, useState, useEffect } from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Container from "react-bootstrap/Container";
+import BITImage from "../Images/BIT.png";
 
+function NavBar_(props) {
+  const [pageToDisplay, setPageToDisplay] = useState(3);
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">BIT</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">FEE STATUS</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">IA marks</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          IMI MARU
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</nav>
-</div>
-        );
+  useEffect(() => {
+    props.pageChange(pageToDisplay);
+  }, [pageToDisplay]);
+
+  return (
+    <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+      <Container fluid style={{ display: "flex", alignItems: "center" }}>
+        <Nav.Link href="#home">
+          <img src={BITImage} alt="BIT" />
+        </Nav.Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav
+            className="me-auto"
+            style={{ display: "flex", alignItems: "center" }}
+          >
+            <Nav.Link
+              href="#home"
+              onClick={() => {
+                setPageToDisplay(0);
+              }}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              href="#Marks"
+              onClick={() => {
+                setPageToDisplay(2);
+              }}
+            >
+              Marks
+            </Nav.Link>
+            <Nav.Link
+              href="#Dept"
+              onClick={() => {
+                setPageToDisplay(2);
+              }}
+            >
+              Attendance
+            </Nav.Link>
+            <Nav.Link
+              href="#Research"
+              onClick={() => {
+                setPageToDisplay(1);
+              }}
+            >
+              Account
+            </Nav.Link>
+            <Nav.Link href="#Placements">
+              <div style={{ display: "flex" }}>
+                <div>Placements</div>
+                <div
+                  style={{
+                    marginLeft: "10px",
+                    padding: "2px",
+                    borderRadius: "10px",
+                    backgroundColor: "red",
+                  }}
+                >
+                  {props.value}
+                </div>
+              </div>
+            </Nav.Link>
+            <Nav.Link
+              href="#"
+              onClick={() => {
+                setPageToDisplay(3);
+              }}
+            >
+              Logout
+            </Nav.Link>
+          </Nav>
+          <Nav
+            // className="me-auto"
+            style={{
+              marginRight: "45px",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            {/* <NavDropdown title="Data Portal" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown> */}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
-
-
-export default NavBar; 
-
-
+export default NavBar_;
