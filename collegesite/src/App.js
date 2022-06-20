@@ -23,12 +23,18 @@ function App() {
 
   return (
     <>
-      <NavBar_ value={100} pageChange={onPageChange} />
+      <NavBar_ value={10} pageChange={onPageChange} />
       {/* <SideBar /> */}
       {pageToDisplay === 1 && <Contarea token={token} />}
       {pageToDisplay === 2 && <Marks token={token} />}
 
-      {pageToDisplay === 3 && <LoginPage onTokenFetch={tokenFetchHandler} />}
+      {pageToDisplay === 3 && (
+        <LoginPage
+          reset={setToken}
+          onTokenFetch={tokenFetchHandler}
+          setPageToDisplay={setPageToDisplay}
+        />
+      )}
       {pageToDisplay === 4 && <Home token={token} />}
     </>
   );

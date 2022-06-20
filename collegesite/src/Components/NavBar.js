@@ -40,14 +40,14 @@ function NavBar_(props) {
             >
               Marks
             </Nav.Link>
-            <Nav.Link
+            {/* <Nav.Link
               href="#Dept"
               onClick={() => {
                 setPageToDisplay(2);
               }}
             >
               Attendance
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link
               href="#Research"
               onClick={() => {
@@ -56,7 +56,7 @@ function NavBar_(props) {
             >
               Account
             </Nav.Link>
-            <Nav.Link href="#Placements">
+            {/* <Nav.Link href="#Placements">
               <div style={{ display: "flex" }}>
                 <div>Placements</div>
                 <div
@@ -70,7 +70,7 @@ function NavBar_(props) {
                   {props.value}
                 </div>
               </div>
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link
               href="#"
               onClick={() => {

@@ -1,0 +1,8 @@
+.card {
+  text-align: justify;
+}
+.outercontainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

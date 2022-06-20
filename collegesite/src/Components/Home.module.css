@@ -1,0 +1,15 @@
+* {
+  color: white;
+}
+.heading {
+  text-align: center;
+  padding: 40px;
+  font-size: 75px;
+}
+.content {
+  padding-left: 200px;
+  padding-right: 200px;
+  text-align: justify;
+  line-height: 30px;
+  font-size: 30px;
+}

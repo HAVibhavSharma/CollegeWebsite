@@ -1,7 +1,7 @@
-import "./LoginPage.css";
 import { useState, useEffect } from "react";
-
+import styles from "./LoginPage.module.css";
 const LoginPage = (props) => {
+  props.reset("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [fetchDetails, setFetchDetails] = useState(false);
@@ -18,11 +18,15 @@ const LoginPage = (props) => {
 
   const submitHandler = (event) => {
     console.log(event);
+
     event.preventDefault();
     console.log("in submit");
+
     setFetchDetails((prevState) => {
       return !prevState;
     });
+    console.log(fetchDetails);
+    if (fetchDetails) props.setPageToDisplay(4);
   };
 
   useEffect(() => {
@@ -47,19 +51,32 @@ const LoginPage = (props) => {
   }, [fetchDetails]);
 
   return (
-    <form
-      className="login"
-      // encType="multipart/form-data"
-      onSubmit={submitHandler}
-    >
-      <input onChange={onUserChange} type="text" placeholder="Username" />
-      <input
-        onChange={onPasswordChange}
-        type="password"
-        placeholder="Password"
-      />
-      <button>Login</button>
-    </form>
+    <>
+      <div className={styles.poscontainer}>
+        <form
+          className="login"
+          // encType="multipart/form-data"
+          onSubmit={submitHandler}
+        >
+          <div className={styles.outercontainer}>
+            <div className={styles.label}>Welcome</div>
+            <input
+              className={styles.input}
+              onChange={onUserChange}
+              type="text"
+              placeholder="Username"
+            />
+            <input
+              className={styles.input}
+              onChange={onPasswordChange}
+              type="password"
+              placeholder="Password"
+            />
+            <button className={styles.submit}>Login</button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 

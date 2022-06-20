@@ -1,0 +1,42 @@
+body {
+  background-color: black;
+}
+.input {
+  border: solid black 1px;
+  border-radius: 12px;
+  height: 50px;
+  width: 100%;
+  color: black;
+}
+.outercontainer {
+  display: flex;
+  border: solid black 1px;
+  height: calc(100vh * (50 / 100));
+  width: calc(100vw * (25 / 100));
+  border-radius: 5px;
+  flex-direction: column;
+  padding: 200px 10px 10px 10px;
+  gap: 10px;
+  align-items: center;
+  background-color: dark;
+}
+.poscontainer {
+  display: flex;
+  height: calc(100vh * (65 / 100));
+  justify-content: center;
+  align-items: center;
+}
+.submit {
+  border: solid red 1px;
+  color: black;
+  border-radius: 5px;
+  background-color: red;
+  height: 15%;
+  width: 25%;
+}
+.label {
+  color: red;
+  font-style: Sans-serif;
+  font-size: 50px;
+  margin-bottom: 29px;
+}

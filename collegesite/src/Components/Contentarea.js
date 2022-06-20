@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Card from "../Cards/Card";
 import styles from "./Contentarea.module.css";
 
 const Contarea = (props) => {
@@ -24,34 +25,36 @@ const Contarea = (props) => {
 
   return (
     <>
-      <div>
-        <h2>
-          <center>{data.results[1].name}</center>
-        </h2>
-      </div>
-      <br />
-      <br />
-      <div className={styles.contetn}>
-        <b>Student ID : </b>
-        {data.results[1].id}
-      </div>
-      <div>
-        <b>Email : </b>
-        {data.results[1].email}
-      </div>
+      <Card>
+        <div>
+          <h2>
+            <center>{data.results[1].name}</center>
+          </h2>
+        </div>
+        <br />
+        <br />
+        <div className={styles.contetn}>
+          <b>Student ID : </b>
+          {data.results[1].id}
+        </div>
+        <div>
+          <b>Email : </b>
+          {data.results[1].email}
+        </div>
 
-      <div>
-        <b>Phone : </b>
-        {data.results[1].phone}
-      </div>
-      <div>
-        <b>Branch : </b>
-        {data.results[1].branch}
-      </div>
-      <div>
-        <b>Semester : </b>
-        {data.results[1].current_sem}
-      </div>
+        <div>
+          <b>Phone : </b>
+          {data.results[1].phone}
+        </div>
+        <div>
+          <b>Branch : </b>
+          {data.results[1].branch}
+        </div>
+        <div>
+          <b>Semester : </b>
+          {data.results[1].current_sem}
+        </div>
+      </Card>
     </>
   );
 };
