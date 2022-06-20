@@ -27,7 +27,7 @@ function NavBar_(props) {
             <Nav.Link
               href="#home"
               onClick={() => {
-                setPageToDisplay(0);
+                setPageToDisplay(4);
               }}
             >
               Home

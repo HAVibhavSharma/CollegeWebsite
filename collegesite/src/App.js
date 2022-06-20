@@ -6,6 +6,7 @@ import SideBar from "./Components/SideBar";
 import LoginPage from "./Components/LoginPage";
 import Contarea from "./Components/Contentarea";
 import Marks from "./Components/Marks";
+import Home from "./Components/Home";
 
 function App() {
   const [pageToDisplay, setPageToDisplay] = useState(3);
@@ -26,7 +27,9 @@ function App() {
       {/* <SideBar /> */}
       {pageToDisplay === 1 && <Contarea token={token} />}
       {pageToDisplay === 2 && <Marks token={token} />}
+
       {pageToDisplay === 3 && <LoginPage onTokenFetch={tokenFetchHandler} />}
+      {pageToDisplay === 4 && <Home token={token} />}
     </>
   );
 }
